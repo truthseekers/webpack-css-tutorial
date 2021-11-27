@@ -14,7 +14,7 @@ module.exports = {
   entry: {
     hello: "./src/index.js",
     duuude: "./src/somefile.js",
-    style: ["./src/style.css"],
+    style: ["./src/style.scss"],
   },
   output: {
     filename: "[name].js",
@@ -33,8 +33,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
