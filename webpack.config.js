@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const RemovePlugin = require("remove-files-webpack-plugin");
 
 // module.exports = {
 //   entry: "./src/index.js",
@@ -13,6 +14,7 @@ module.exports = {
   entry: {
     hello: "./src/index.js",
     duuude: "./src/somefile.js",
+    style: ["./src/style.css"],
   },
   output: {
     filename: "[name].js",
@@ -21,6 +23,11 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
+    }),
+    new RemovePlugin({
+      after: {
+        include: ["./dist/style.js"],
+      },
     }),
   ],
   module: {
